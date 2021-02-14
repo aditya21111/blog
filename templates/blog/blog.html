@@ -1,0 +1,145 @@
+{%extends "basic.html"%}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet">
+
+    </head>
+    {% block title %}
+    Blogee
+    {% endblock title %}
+   
+   {% block css %}
+
+
+
+
+   
+   .row.g-0.border.rounded.overflow-hidden.flex-md-row.mb-4.shadow-sm.h-md-250.ml-3.pd-3.position-relative {
+    height: 17rem;
+
+}
+.date{
+  margin-top:10px;
+}
+#thumbnail{
+    width:50%;
+  }
+
+#continue{
+  text-decoration:none;
+
+}
+  body{font-family: 'Roboto', sans-serif;}
+  
+
+.col.d-flex.flex-column.position-static{
+  padding:2rem;
+
+}
+
+@media only screen and (max-width: 768px) {
+
+
+.col.d-flex.flex-column.position-static{
+  padding:1.2rem;
+
+}
+ #continue{
+   
+   font-size:0.8rem;
+ }
+  .row.g-0.border.rounded.overflow-hidden.flex-md-row.mb-4.shadow-sm.h-md-250.ml-3.pd-3.position-relative{
+    height:13rem;
+  }
+
+  strong{
+    font-size:0.8rem;
+  }
+
+  h4{
+    font-size:1rem;
+    
+  
+  }
+  #thumbnail{
+    width:50vw;
+  }
+
+  p{
+    
+    font-size:0.9rem;
+    margin-bottom:0;
+    padding:0;
+  }
+
+  .date{
+    margin-top:0.2rem;
+    font-size:0.7rem;
+  }
+
+
+  {% comment %} .col .p-4 .d-flex .flex-column .position-static{
+    padding:10px;
+  } {% endcomment %}
+  
+}
+   {% endblock css %}
+
+    <body>
+     {% block body %}
+         
+     
+      <div class="container">
+
+    <div class="row mb-2 mt-4">
+     {% for i in blog %}
+      
+      <div class="col-md-6  " >
+        
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 ml-3  pd-3 position-relative box">
+    
+        
+          <div class="col d-flex flex-column position-static">
+          
+         
+            <strong class="d-inline-block mb-2 text-primary">{{i.category}}</strong>
+            
+            <h4 class="mb-0">{{i.title|truncatechars:25}}</h4>
+            <div class="mb-1 text-muted date">{{i.pub_date}}</div>
+            <p class="card-text mb-2">{{i.para1|truncatechars:45}}</p>
+            <a href="{{i.slug}}" class="stretched-link sm text-primary" id="continue"> Continue reading...</a>
+          </div>
+       
+          
+      
+       <img src="/media/{{i.thumbnail}}" style=" height: 100%;" alt="" id="thumbnail" >
+            
+   
+         
+        </div>
+        
+        
+      </div>
+      {% endfor %}
+    
+   
+    </div>
+  
+   
+     {% endblock body %} 
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  </body>
+</html>

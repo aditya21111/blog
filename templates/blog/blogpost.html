@@ -1,0 +1,283 @@
+{%extends "basic.html"%}
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,300;1,400&display=swap" rel="stylesheet">
+
+
+
+{% block title%}hloo {% endblock %}
+
+
+{% block css %}
+
+
+ html*{
+  font-family: 'Open Sans', sans-serif;
+ }
+ p.con-para{ line-height: 26px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  font-family: 'Open Sans', sans-serif;
+  hyphens: auto;
+  
+
+}
+a#link,p,h4,h3{
+  text-decoration:none;
+    display: block;
+
+    font-family: 'Open Sans', sans-serif;
+}
+a#link{
+  font-size:1rem;
+}
+
+a#link:first-letter {
+    text-transform: uppercase;
+
+}
+
+
+p::first-letter{
+  text-transform: uppercase;
+
+}
+h3::first-letter{
+  text-transform: uppercase;
+}
+h4::first-letter{
+  text-transform: uppercase;
+}
+
+
+#thumbnail{
+  height:28vh;
+  width:18rem;
+  
+}
+.user{
+  display:inline
+}
+.time{
+  display:inline;
+}
+.logo{
+    
+  border: 1px solid;
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    width: 74px;
+    height: 67px;
+    text-decoration: up;
+    text-transform: uppercase;
+}
+
+.logoimg{
+  width:62px;
+  height: 61px;
+  padding: 1px;
+  
+}
+.logoimg>img{
+  width=100%;
+  height:100%;
+}
+
+.collapse-box{
+  display:none;
+}
+
+{% endblock %}
+
+
+{% block body %}
+{% load humanize %}
+
+<div class="container mt-5">
+ <div class="row">
+      <div class="col-md-8">
+    
+  
+        <article class="blog-post">
+          <h3 class="pb-4 mb-4 font-italic border-bottom" style="text-transform: lowercase;">
+            {{post.title}}
+          </h3>
+{%load static%}
+       
+          <p  style="text-transform: lowercase;" class="blog-post-meta">{{post.pub_date}} By <a href="#">{{post.writer}}</a></p>
+
+          <div class="banner" id="banner" >
+            <img src="/media/{{post.thumbnail}}"  alt="My image"  id="banner-img" class="img-thumbnail" alt="Responsive image">
+          </div>
+         
+           
+          <p  style="text-transform: lowercase;">{{post.postimgdesc}}</p>
+          <hr>
+           
+        <div class="container">
+          <p  style="text-transform: lowercase;"class="con-para">{{post.para1}}</p>
+          <blockquote>
+        
+          <h4  style="text-transform: lowercase;"class="con-para">{{post.head0}}</h4>
+          <p  style="text-transform: lowercase;"class="con-para">{{post.head0para}}</p>
+
+
+          <h4  style="text-transform: lowercase;"class="con-para" >{{post.head1}}</h4>
+
+          <p  style="text-transform: lowercase; "class="con-para"  >{{post.head1para}}</p>
+         
+
+          <h4  style="text-transform: lowercase;"class="con-para" >{{post.head2}}</h4>
+
+          <p  style="text-transform: lowercase; "class="con-para" >{{post.head2para}}</p>
+        
+      
+ 
+        </div>
+        </article><!-- /.blog-post -->
+        {%if user.is_authenticated%}
+        <h2>Comments</h2>
+        <form action="/blog/postComment" method="post">
+         {% csrf_token %}
+         <form>
+          <div class="mb-3">
+            <input type="hidden" name=sno value={{post.post_id}} >
+            <input type="text" name=comment class="form-control" placeholder="Enter a public comment" required="true">
+          <button type="submit" class="btn btn-primary mt-3">Post</button>
+           </div>
+       </form>
+           {% else %}
+ 
+<input class="form-control" id="disabledInput" type="text" placeholder="login to add comments" disabled>
+<div class="container">
+        </div>
+       </form>
+
+
+{%endif%}
+
+<div class="container">
+ <hr>
+ 
+ {% for i in comment  %}
+
+
+     <div class="row my-3">
+        <div class="col-md-2 ">
+          {%if profile%}
+       
+          
+            
+          
+            
+              {% for i in profile %}
+                
+           
+            
+          <div class="logoimg"><img src="{{i.pic.url}}" alt="not found"></div>
+          {% endfor %}
+        </div>
+          
+          {% else %}
+           <div class="logo{{i.sno}} logo"><span id="userlogo">
+          
+          {{i.user.get_short_name|slice:":1"}}</span></div>
+        </div>
+          {% endif %}
+       
+      
+        <div class="col-md-10 "> 
+         <b>{{i.user.get_short_name}}</b>
+
+        <img src="{% static '/dot.png' %}" alt=".">
+         <span class="text-muted ">{{i.timestamp|naturaltime}}</span>
+        <div class="comment">   {{i.comment|truncatechars:300}} </div>
+    </div>
+    </div>
+    <button class="muted" onclick="toggle()">reply</button>
+    <div id="collapse-box{{i.sno}}">
+      <div class="card card-body my-2">
+          <form action="/blog/postComment" method="post">
+              {% csrf_token %}
+              <div class="form-group">
+                  <label for="comment">Post a reply </label>
+                  <input type="text" class="form-control" name="comment" placeholder="Enter comment here">
+                  <input type="hidden" name="parentSno" value="{{comment.sno}}">
+              </div>
+              <input type="hidden" name="postSno" value="{{post.sno}}">
+              <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+      </div>
+  </div>
+    
+    <hr>
+
+{% endfor %}
+</div>
+      
+      </div>
+  <div class="col-md-4">
+    <div style="transform: translate(15px,20px); margin-bottom: 10px;"> <h4  style="text-transform: lowercase; " class="text">Articles you may like</h4></div>
+      
+      {%for other in others%}
+      <div class="p-4 ">
+      
+       
+        <div class="card mt-3" style="width: 18rem;">
+          <img src="/media/{{other.thumbnail}}" class="card-img-top" id="thumbnail" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{other.title|truncatechars:25}}</h5>
+            <p class="card-text">{{other.para1|truncatechars:70}}</p>
+            <a href="/blog/{{other.slug}}" class="btn btn-primary btn-sm stretched-link">Learn more..</a>
+            </div>
+       
+        
+        
+      
+
+           
+      
+  </div>
+      </div>
+       
+      
+        
+     
+      {%endfor%}
+   
+   
+  
+        <div class="p-4">
+          <h4 class="font-italic">Elsewhere</h4>
+          <ol class="list-unstyled">
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Facebook</a></li>
+          </ol>
+        </div>
+      </div>
+  
+    </div>
+    </div>
+
+  {%endblock%}
+  {% block js %}
+  <script>
+  
+   var colors =['#534e52','#682c0e','#f05454','#ffc1b6','#23689b','#ffc75f',"#ffc75f"] ;
+   {% for i in comment  %}
+document.querySelector('.logo{{i.sno}}').style.background=
+colors[Math.floor(Math.random() * colors.length)];
+function toggle(){
+  
+  document.getElementById("collapse-box{{i.sno}}").style.display="block";
+  
+
+}
+{% endfor %}
+   </script>
+{% endblock %}

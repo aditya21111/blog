@@ -1,0 +1,15 @@
+
+            <strong class="d-inline-block mb-2 text-primary">{{i.category}}</strong>
+            
+            <h4 class="mb-0">{{i.title|truncatechars:25}}</h4>
+            <div class="mb-1 text-muted date">{{i.pub_date}}</div>
+            <p class="card-text mb-auto">{{i.para1|slice:":50"}}</p>
+            <a href="{{i.slug}}" class="stretched-link">Continue reading</a>
+          </div>
+       
+          
+       
+       <img src="/media/{{i.thumbnail}}" style=" height: 100%;" alt="" id="thumbnail" >
+            
+ 
+         
