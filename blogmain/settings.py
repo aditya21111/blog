@@ -54,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'blogmain.urls'
@@ -132,7 +133,8 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
     '/var/www/static/',
 ]
-
+STACTIC_ROOT= os.path.join(BASE_DIR,'static')
+STATICFILES_STORAGE="whitenoise.storage.compressesManifestStaticFilesStorage"
 MESSAGE_TAGS = {
     messages.ERROR:"danger"
 }
