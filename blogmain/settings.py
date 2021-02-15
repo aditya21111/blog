@@ -138,5 +138,5 @@ STATICFILES_STORAGE="whitenoise.storage.compressesManifestStaticFilesStorage"
 MESSAGE_TAGS = {
     messages.ERROR:"danger"
 }
-# Activate Django-Heroku.
+# Activate Django-Heroku
 django_heroku.settings(locals())
