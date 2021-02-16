@@ -12,7 +12,7 @@ class Contact(models.Model):
     name=models.CharField(max_length=50)
     email=models.CharField(max_length=300)
     
-    contacted_at=models.DateField(null=True )
+  
     phone=models.CharField(max_length=50,default="")
     desc=models.CharField(max_length=300,default="")
  
