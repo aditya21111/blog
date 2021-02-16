@@ -1,1 +1,1 @@
-python-3.9.1 --log
+python-3.9.1
