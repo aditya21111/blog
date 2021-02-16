@@ -17,7 +17,7 @@ def blogHome(request):
 def blogPost(request,slug):
   
     
-    post=Blogpost.objects.filter(slug=slug)[0]
+    post=Blogpost.objects.filter(slug=slug)
     otherPosts=Blogpost.objects.exclude(slug=slug)
     comment=comments.objects.filter(post=post).order_by("-timestamp") 
     if  request.user.is_authenticated:
