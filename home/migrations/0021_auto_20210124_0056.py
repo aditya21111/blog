@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='contact',
             name='contacted_at',
-            field=models.DateField(default="2021-01-24 "),
+            field=models.DateField(default="2021-01-24"),
         ),
     ]
