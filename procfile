@@ -1,2 +1,1 @@
-web gunicorn blogmain.wsgi --log-file - --bind 0.0.0.0:$PORT
-web: gunicorn app:app
+web: gunicorn blogmain.wsgi:application --log-file -
