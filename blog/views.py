@@ -28,7 +28,7 @@ def blogPost(request,slug):
         return render(request,"blog/blogpost.html",{"post":post,"others":otherPosts,"comment":comment})
 
     except Exception as e:
-        return HttpResponse(e)
+        return HttpResponse(e )
 def postComment(request):
     if request.method=="POST":
         comment=request.POST.get("comment")
