@@ -185,7 +185,7 @@ h4::first-letter{
           {% else %}
            <div class="logo{{i.sno}} logo"><span id="userlogo">
           
-          {{i.user|make_list|slice:':2'}}</span></div>
+          {{i.user|make_list|slice:':2'|join:''}}</span></div>
         </div>
           {% endif %}
        
