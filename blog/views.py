@@ -21,12 +21,14 @@ def blogPost(request,slug):
         otherPosts=Blogpost.objects.exclude(slug=slug)
         comment=comments.objects.filter(post=post).order_by("-timestamp") 
 
+        
+        if  request.user.is_authenticated:
+            profile=userprofile.objects.filter(user=request.user)
+            return render(request,"blog/blogpost.html",{"post":post,"others":otherPosts,"comment":comment,"profile":profile})
+        return render(request,"blog/blogpost.html",{"post":post,"others":otherPosts,"comment":comment})
+
     except Exception as e:
         return HttpResponse(e)
-    if  request.user.is_authenticated:
-        profile=userprofile.objects.filter(user=request.user)
-        return render(request,"blog/blogpost.html",{"post":post,"others":otherPosts,"comment":comment,"profile":profile})
-    return render(request,"blog/blogpost.html",{"post":post,"others":otherPosts,"comment":comment})
 def postComment(request):
     if request.method=="POST":
         comment=request.POST.get("comment")
