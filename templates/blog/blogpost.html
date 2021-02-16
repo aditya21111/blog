@@ -174,18 +174,18 @@ h4::first-letter{
             
           
             
-              {% for i in profile %}
+              {% for j in profile %}
                 
            
             
-          <div class="logoimg"><img src="{{i.pic.url}}" alt="not found"></div>
+          <div class="logoimg"><img src="{{j.pic.url}}" alt="not found"></div>
           {% endfor %}
         </div>
           
           {% else %}
            <div class="logo{{i.sno}} logo"><span id="userlogo">
           
-          {{i.user.get_short_name|slice:":1"}}</span></div>
+          {{i.user|slice:":1"}}</span></div>
         </div>
           {% endif %}
        
