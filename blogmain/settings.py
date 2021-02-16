@@ -28,7 +28,7 @@ SECRET_KEY = '%@&_9(b7$!5obcp52^#d$yta-pdk+953$+os!3bbe%&t_3k*)#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [https://writer-hub.herokuapp.com/]
 
 
 # Application definition
