@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='contact',
             name='contacted_at',
-            field=models.DateField(default="2021-01-24 04:12:52.268804"),
+            field=models.DateField(default="2021-01-24"),
             preserve_default=False,
         ),
     ]

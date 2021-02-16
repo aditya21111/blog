@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='contact',
             name='contacted_at',
-            field=models.DateTimeField(default=django.utils.timezone.now, null=True),
+            field=models.DateTimeField(default=1, null=True),
         ),
     ]
