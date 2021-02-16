@@ -19,7 +19,7 @@ def blogPost(request,slug):
     
     post=Blogpost.objects.filter(slug=slug)[0]
     otherPosts=Blogpost.objects.exclude(slug=slug)
-    comment=comments.objects.filter(post=post)
+    comment=comments.objects.filter(post=post).order_by("-timestamp") 
     if  request.user.is_authenticated:
         profile=userprofile.objects.filter(user=request.user)
         return render(request,"blog/blogpost.html",{"post":post,"others":otherPosts,"comment":comment,"profile":profile})
