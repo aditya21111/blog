@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
                 ('email', models.CharField(max_length=300)),
                 ('phone', models.CharField(default='', max_length=50)),
                 ('desc', models.CharField(default='', max_length=300)),
-                ('time_stamp', models.DateTimeField(default="2021-01-24 04:12:52.268804"),
+                ('time_stamp', models.DateTimeField(default="2021-01-24 "),
                 )
             ],
         ),

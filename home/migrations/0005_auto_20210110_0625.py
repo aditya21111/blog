@@ -19,12 +19,12 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='contact',
             name='created_at',
-            field=models.DateTimeField(default="2021-01-24 04:12:52.268804"),
+            field=models.DateTimeField(default="2021-01-24"),
             preserve_default=False,
         ),
         migrations.AddField(
             model_name='contact',
             name='updated_at',
-            field=models.DateTimeField(default="2021-01-24 04:12:52.268804"),
+            field=models.DateTimeField(default="2021-01-24 "),
         ),
     ]

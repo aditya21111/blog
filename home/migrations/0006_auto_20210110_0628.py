@@ -13,11 +13,11 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='contact',
             name='created_at',
-            field=models.DateTimeField(default="2021-01-24 04:12:52.268804"),
+            field=models.DateTimeField(default="2021-01-24 "),
         ),
         migrations.AlterField(
             model_name='contact',
             name='updated_at',
-            field=models.DateTimeField(default="2021-01-24 04:12:52.268804"),
+            field=models.DateTimeField(default="2021-01-24 "),
         ),
     ]
