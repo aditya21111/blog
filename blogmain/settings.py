@@ -85,13 +85,11 @@ WSGI_APPLICATION = 'blogmain.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default' {
+    'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-db_from_env = dj_database_url.config()
-DATABASES = { 'default': dj_database_url.config() }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -147,3 +145,5 @@ MESSAGE_TAGS = {
 django_heroku.settings(locals())
 
 # Heroku: Update database configuration from $DATABASE_URL.
+db_from_env = dj_database_url.config()
+DATABASES = { 'default': dj_database_url.config() }
