@@ -168,21 +168,18 @@ h4::first-letter{
 
      <div class="row my-3">
         <div class="col-md-2 ">
-          {%if profile%}
+        
        
           
             
           
             
-              {% for j in profile %}
+            
                 
            
             
-          <div class="logoimg"><img src="{{j.pic.url}}" alt="not found"></div>
-          {% endfor %}
-        </div>
-          
-          {% else %}
+         
+        
            <div class="logo{{i.sno}} logo"><span id="userlogo">
           
           {{i.user|make_list|slice:':1'|join:''}}</span></div>
