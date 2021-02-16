@@ -185,7 +185,7 @@ h4::first-letter{
           {% else %}
            <div class="logo{{i.sno}} logo"><span id="userlogo">
           
-          {{i.user|slice:":1"}}</span></div>
+          {{i.user|make_list|slice:':2'}}</span></div>
         </div>
           {% endif %}
        
@@ -198,7 +198,7 @@ h4::first-letter{
         <div class="comment">   {{i.comment|truncatechars:300}} </div>
     </div>
     </div>
-    <button class="muted" onclick="toggle()">reply</button>
+    <!-- <button class="muted" onclick="toggle()">reply</button>
     <div id="collapse-box{{i.sno}}">
       <div class="card card-body my-2">
           <form action="/blog/postComment" method="post">
@@ -210,7 +210,7 @@ h4::first-letter{
               </div>
               <input type="hidden" name="postSno" value="{{post.sno}}">
               <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
+          </form> -->
       </div>
   </div>
     
