@@ -144,7 +144,7 @@ h4::first-letter{
         </article><!-- /.blog-post -->
         <hr>
         {%if user.is_authenticated%}
-        <h2>Comments</h2>
+        
         <form action="/blog/postComment" method="post">
          {% csrf_token %}
          <form>
@@ -222,7 +222,7 @@ h4::first-letter{
       
       </div>
  
-      
+      <hr>
       {%for other in others%}
       <div class="p-4 ">
       
