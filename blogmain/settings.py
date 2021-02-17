@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "django.contrib.humanize",
+    'django.contrib.staticfiles',
+    'cloudinary_storage',
+    'cloudinary',
     "blog",
     "home",
     
@@ -128,8 +131,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 ROOT_PATH = os.path.dirname(__file__)
 STATIC_URL= "/static/"
-MEDIA_ROOT= os.path.join(ROOT_PATH, "media")
-MEDIA_URL="/media/"
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dus8g1azl',
+    'API_KEY': '495338728421513',
+    'API_SECRET': '3GoLSXtvkBr88p5Hkn8lGzA0Uoc'
+}
+
+MEDIA_URL = '/media/'  # or any prefix you choose
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 STATICFILES_DIRS=[os.path.join(ROOT_PATH, 'static')]
 
 STACTIC_ROOT= os.path.join(ROOT_PATH,'staticfiles')
