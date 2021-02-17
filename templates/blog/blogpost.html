@@ -111,8 +111,8 @@ h4::first-letter{
           <p  style="text-transform: lowercase;" class="blog-post-meta">{{post.pub_date}} By <a href="#">{{post.writer}}</a></p>
 
           <div class="banner" id="banner" >
-          <script>console.log({{post.thumbnail.url}})</script>
-            <img src="{{post.thumbnail}}"    id="banner-img" class="img-thumbnail" >
+          <script>console.log("/media/"+{{post.thumbnail.url}})</script>
+            <img src="{{post.thumbnail.url}}"    id="img" class="img-thumbnail" >
           </div>
          
            
