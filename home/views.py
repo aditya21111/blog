@@ -124,40 +124,40 @@ def logout(request):
 
 
 def profile(request):
-    
-    print(request)
-    if request.method=="POST":
-        try:
-            userimg=request.FILES['userimg']
-        except Exception as e:
-            
-            count=userprofile.objects.count()
-            userimages=userprofile.objects.filter(user=request.user,sno=count)
-            for i in userimages:
-                userimg=i.pic
-                print(userimg)
-        tel=request.POST.get('tel','')
-        country=request.POST.get('country',"")
-        state=request.POST.get('state',"")
-        user=request.user
-            
-        profile=userprofile(pic=userimg,tel=tel,state=state,country=country,user=user)
-            
-        profile.save()
-        messages.success(request,'profile updated successfully 😃')   
-        
-        return redirect("/blog")
-        
-       
-
-    
     try:
-        userpic=userprofile.objects.filter(user=request.user).order_by("-updated_at").first()
-        print(userpic)
-
+        if request.method=="POST":
+            try:
+                userimg=request.FILES['userimg']
+            except Exception as e:
+                
+                count=userprofile.objects.count()
+                userimages=userprofile.objects.filter(user=request.user,sno=count)
+                for i in userimages:
+                    userimg=i.pic
+                    print(userimg)
+            tel=request.POST.get('tel','')
+            country=request.POST.get('country',"")
+            state=request.POST.get('state',"")
+            user=request.user
+                
+            profile=userprofile(pic=userimg,tel=tel,state=state,country=country,user=user)
+                
+            profile.save()
+            messages.success(request,'profile updated successfully 😃')   
+            
+            return redirect("/blog")
+            
     except Exception as e:
-        messages.error( request,"profile not updated please try again")
-        return redirect("/blog")
+        return HttpResponse(e )    
+
+        
+        try:
+            userpic=userprofile.objects.filter(user=request.user).order_by("-updated_at").first()
+            print(userpic)
+
+        except Exception as e:
+            messages.error( request,"profile not updated please try again")
+            return redirect("/blog")
     
     
 
