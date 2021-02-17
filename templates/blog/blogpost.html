@@ -142,6 +142,7 @@ h4::first-letter{
  
         </div>
         </article><!-- /.blog-post -->
+        <hr>
         {%if user.is_authenticated%}
         <h2>Comments</h2>
         <form action="/blog/postComment" method="post">
@@ -164,13 +165,13 @@ h4::first-letter{
 
 {%endif%}
 
-<div class="container border">
+<div class="container ">
 
  
  {% for i in comment  %}
 
 
-     <div class="row my-3">
+     <div class="row my-3 border">
         <div class="col-md-2 ">
         
        
@@ -253,7 +254,7 @@ h4::first-letter{
         <div class="p-4">
           <h4 class="font-italic">Elsewhere</h4>
           <ol class="list-unstyled">
-            <li><a href="#">GitHub</a></li>
+            <li><a href="https://github.com/aditya21111">GitHub</a></li>
             <li><a href="#">Twitter</a></li>
             <li><a href="#">Facebook</a></li>
           </ol>
