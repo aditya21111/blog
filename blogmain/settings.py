@@ -17,6 +17,9 @@ import os
 import django_heroku
 
 import dj_database_url
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&k3q+pmu)5%asj6yjpkag')
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -137,6 +140,9 @@ CLOUDINARY_STORAGE = {
     'API_KEY': '495338728421513',
     'API_SECRET': '3GoLSXtvkBr88p5Hkn8lGzA0Uoc'
 }
+
+
+
 
 MEDIA_URL = '/media/'  # or any prefix you choose
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
