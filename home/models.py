@@ -22,7 +22,7 @@ class Contact(models.Model):
         return self.name
 
 class userprofile(models.Model):
-    pic=models.ImageField(blank=True,null=True,upload_to="home/images",default=None)
+    pic=models.ImageField(blank=True,null=True,upload_to="media",default=None)
     sno=models.AutoField(blank=True,primary_key=True,unique=True,default=None)
     tel=models.CharField(default="1",null=True,max_length=12)
     country=models.CharField(max_length=50,default='',null=True)
