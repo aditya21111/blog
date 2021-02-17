@@ -112,7 +112,9 @@ h4::first-letter{
 
           <div class="banner" id="banner" >
           <script>console.log("/media/"+{{post.thumbnail.url}})</script>
-            <img src="/media/blog/images/Screenshot_5_iua4ng"    id="img" class="img-thumbnail" >
+          {% load cloudinary %}
+
+            <img src="{% cloudinary Blogpost_model_instance.thumbnail.name width=100 height=100 %}"    id="img" class="img-thumbnail" >
           </div>
          
            
