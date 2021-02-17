@@ -189,7 +189,7 @@ h4::first-letter{
       
         <div class="col-md-10 "> 
          <b>{{i.user}}</b>
-        <img src="{% staticfiles 'dot.png' %}" alt="">
+        <img src="{% static 'dot.png' %}" alt="">
         
          <span class="text-muted ">{{i.timestamp|naturaltime}}</span>
         <div class="comment">   {{i.comment|truncatechars:300}} </div>
