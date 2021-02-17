@@ -111,7 +111,7 @@ h4::first-letter{
           <p  style="text-transform: lowercase;" class="blog-post-meta">{{post.pub_date}} By <a href="#">{{post.writer}}</a></p>
 
           <div class="banner" id="banner" >
-          <script>console.log("/media/"+{{post.thumbnail.url}})</script>
+       
           {% load cloudinary %}
 
             <img src="{% cloudinary Blogpost_model_instance.thumbnail.name width=100 height=100 %}"    id="img" class="img-thumbnail" >
