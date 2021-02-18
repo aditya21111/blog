@@ -121,9 +121,11 @@ h4::first-letter{
          
           <hr>
            
-        <div class="container" id='content'>
+     
          
-      {{post.content|safe|escape}}
+          <div class="container" id='content'>
+         
+            {{post.content|safe|escape}}
  
         </div>
         </article><!-- /.blog-post -->
@@ -264,7 +266,5 @@ function toggle(){
 
 }
 {% endfor %}
-
-
    </script>
 {% endblock %}
