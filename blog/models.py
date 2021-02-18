@@ -13,7 +13,12 @@ class Blogpost(models.Model):
     writer=models.CharField(max_length=60,default="")
     thumbnail=models.ImageField(upload_to="blog/images" , default="")
   
-    content = HTMLField()
+    content = HTMLField(mce_attrs={
+        'theme': 'advanced',
+        'plugins': 'template',
+        'height': '350px',
+        'width': '1000px'
+    }))
   
     category=models.CharField(max_length=15,default="")
    
