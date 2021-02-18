@@ -14,7 +14,7 @@ class Blogpost(models.Model):
     thumbnail=models.ImageField(upload_to="blog/images" , default="")
     postimgdesc=models.CharField(max_length=200,default="")
     para1=models.CharField (max_length=3000, default='')
-    content = widget()
+    content = HTMLField()
     head0=models.CharField(max_length=150, default='',blank=True)
     head0para=models.CharField(max_length=4000 ,default='')
     category=models.CharField(max_length=15,default="")

@@ -25,7 +25,7 @@ urlpatterns = [
     path('', include('home.urls')),
     path("blog/",include('blog.urls')),
     
-
+    path('tinymce/', include('tinymce.urls'))
     
 ]
  
