@@ -1,0 +1,15 @@
+{% extends 'admin/change_form.html' %}
+{% load static %}
+
+{% block admin_change_form_document_ready %}
+{{ block.super }}
+<script>
+    
+
+tinyMCE.init({
+  mode: "textareas",  // to do all text areas
+  // or
+  selector: "#id_myfield",  // change this value according to your HTML
+});
+</script>
+{% endblock %}
