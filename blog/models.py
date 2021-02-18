@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.timezone import now
 from home.models import userprofile
-
+from tinymce.models import HTMLField
 
 
 # Create your models here.
@@ -14,7 +14,7 @@ class Blogpost(models.Model):
     thumbnail=models.ImageField(upload_to="blog/images" , default="")
     postimgdesc=models.CharField(max_length=200,default="")
     para1=models.CharField (max_length=3000, default='')
-
+    content = HTMLField()
     head0=models.CharField(max_length=150, default='',blank=True)
     head0para=models.CharField(max_length=4000 ,default='')
     category=models.CharField(max_length=15,default="")
