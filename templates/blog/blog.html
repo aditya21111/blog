@@ -115,7 +115,7 @@
             
             <h4 class="mb-0">{{i.title|truncatechars:25}}</h4>
             <div class="mb-1 text-muted date">{{i.pub_date}}</div>
-            <p class="card-text mb-2">{{i.content||safe|escape|truncatechars:45}}</p>
+            <p class="card-text mb-2">{{i.content||safe|escape|}}</p>
             <a href="{{i.slug}}" class="stretched-link sm text-primary" id="continue"> Continue reading...</a>
           </div>
        
