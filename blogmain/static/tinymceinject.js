@@ -5,7 +5,6 @@ document.head.appendChild(script);
 
 script.onload=function(){
 tinymce.init({
-    forced_root_block:false,
     selector: "#id_content",
     height:656,
     plugins: [
