@@ -8,4 +8,4 @@ admin.site.register((comments))
 
 class PostAdmin(admin.ModelAdmin):
     class Media:
-        js= ('tinymceinject.js')
+        js= ('tinymceinject.js',)
