@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.utils.timezone import now
 from home.models import userprofile
 from tinymce.models import HTMLField
-
+from tinymce.widgets import TinyMCE
 
 # Create your models here.
 class Blogpost(models.Model):
@@ -13,13 +13,9 @@ class Blogpost(models.Model):
     writer=models.CharField(max_length=60,default="")
     thumbnail=models.ImageField(upload_to="blog/images" , default="")
   
-    content = HTMLField(mce_attrs={
-        'theme': 'advanced',
-        'plugins': 'template',
-        'height': '350px',
-        'width': '1000px'
-    }))
-  
+    content = HTMLField()
+    
+ 
     category=models.CharField(max_length=15,default="")
    
     thumbnail=models.ImageField(upload_to="media/blog/images" , default="")
