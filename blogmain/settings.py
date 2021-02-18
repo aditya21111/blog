@@ -35,7 +35,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 ALLOWED_HOSTS = ["https://writer-hub.herokuapp.com"]
-
+TINYMCE_JS_URL = 'https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js'
+TINYMCE_COMPRESSOR = False
 
 # Application definition
 
@@ -142,8 +143,7 @@ CLOUDINARY_STORAGE = {
 }
 
 
-TINYMCE_JS_URL = 'https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js'
-TINYMCE_COMPRESSOR = False
+
 
 
 MEDIA_URL = '/media/'  # or any prefix you choose
