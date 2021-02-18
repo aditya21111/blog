@@ -10,6 +10,7 @@ class Blogpost(models.Model):
     post_id=models.AutoField(primary_key=True)
     title=models.CharField(max_length=100, default="")
     pub_date=models.DateTimeField(default=now)
+    imtro=models.CharField(default="", max_length=50)
     writer=models.CharField(max_length=60,default="")
     thumbnail=models.ImageField(upload_to="blog/images" , default="")
   
