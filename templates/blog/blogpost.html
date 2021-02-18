@@ -264,5 +264,10 @@ function toggle(){
 
 }
 {% endfor %}
+tinymce.init({
+  selector: 'textarea',  // change this value according to your HTML
+  allow_conditional_comments: true
+});
+
    </script>
 {% endblock %}
