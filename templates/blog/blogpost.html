@@ -258,7 +258,12 @@ header.masthead {
   // click listener on button is called 
   if (event.keyCode == 13) { 
     a=commentbox.getAttribute('type')
+    commentbox.value=="";
+    if (commentbox.value){
+    commentbox.setAttribute("disabled", "");
     console.log(a)
+  }
+    
   } 
 
 }); 
