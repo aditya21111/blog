@@ -107,6 +107,10 @@
 
 {% block body %}
 {% load humanize %}
+{%load static%}
+       
+{% load cloudinary %}
+
 <header class="masthead" style="background-image: url('https://res.cloudinary.com/dus8g1azl/image/upload/v1/{{post.thumbnail}}')">
   <div class="overlay"></div>
   <div class="container">
@@ -131,20 +135,9 @@
   
         <article class="blog-post">
          
-{%load static%}
-       
-         
-          <div class="banner" id="banner" >
-       
-          {% load cloudinary %}
 
-            <img src="https://res.cloudinary.com/dus8g1azl/image/upload/v1/{{post.thumbnail}}"    id="img" class="img-thumbnail"  >
-          </div>
          
-           
-         
-          <hr>
-           
+        
      
          
           <div class="container" id='content'>
