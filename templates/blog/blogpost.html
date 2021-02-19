@@ -118,62 +118,44 @@
 
 {%endif%}
 
-<div class="container ">
 
- 
- {% for i in comment  %}
-
-
-     <div class="row my-3 border py-3 px-1">
-        <div class="col-md-2 ">
-        
-       
+<div class="container">
+  <div class="row">
+   {% for i in comment  %}
+      <div class="col-md-8">
+          <div class="media g-mb-30 media-comment">
+              {{i.user|make_list|slice:':1'|join:''}}
+              <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30">
+                <div class="g-mb-15">
+                  <h5 class="h5 g-color-gray-dark-v1 mb-0">{{i.user}}</h5>
+                  <span class="g-color-gray-dark-v4 g-font-size-12">{{i.timestamp|naturaltime}}</span>
+                </div>
           
-            
+                <p> {{i.comment|truncatechars:300}}</p>
           
-            
-            
-                
-           
-            
-         
-        
-           <div class="logo{{i.sno}} logo"><span id="userlogo">
-          
-          {{i.user|make_list|slice:':1'|join:''}}</span></div>
-        </div>
-        
-       
-      
-        <div class="col-md-10 "> 
-         <b>{{i.user}}</b>
-        <img src="{% static 'dot.png' %}" alt="">
-        
-         <span class="text-muted ">{{i.timestamp|naturaltime}}</span>
-        <div class="comment">   {{i.comment|truncatechars:300}} </div>
-    </div>
-    </div>
-    <!-- <button class="muted" onclick="toggle()">reply</button>
-    <div id="collapse-box{{i.sno}}">
-      <div class="card card-body my-2">
-          <form action="/blog/postComment" method="post">
-              {% csrf_token %}
-              <div class="form-group">
-                  <label for="comment">Post a reply </label>
-                  <input type="text" class="form-control" name="comment" placeholder="Enter comment here">
-                  <input type="hidden" name="parentSno" value="{{comment.sno}}">
+                <ul class="list-inline d-sm-flex my-0">
+                  <li class="list-inline-item g-mr-20">
+                    <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                      <i class="fa fa-thumbs-up g-pos-rel g-top-1 g-mr-3"></i>
+                      178
+                    </a>
+                  </li>
+                  <li class="list-inline-item g-mr-20">
+                    <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                      <i class="fa fa-thumbs-down g-pos-rel g-top-1 g-mr-3"></i>
+                      34
+                    </a>
+                  </li>
+                  <li class="list-inline-item ml-auto">
+                    <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                      <i class="fa fa-reply g-pos-rel g-top-1 g-mr-3"></i>
+                      Reply
+                    </a>
+                  </li>
+                </ul>
               </div>
-              <input type="hidden" name="postSno" value="{{post.sno}}">
-              <button type="submit" class="btn btn-primary">Submit</button>
-          </form> -->
-   
-
-    
-
-{% endfor %}
-</div>
-      
-    
+              {% endfor %}
+          </div>
       </div>
       <div class="col-md-4">
       
