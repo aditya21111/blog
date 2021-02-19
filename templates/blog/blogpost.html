@@ -169,7 +169,7 @@ header.masthead {
  
           <div class="mb-3">
             <input type="hidden" name=sno value={{post.post_id}} >
-            <input type="text" name=comment class="form-control" placeholder="Enter a public comment" required="true">
+            <input type="text" name=comment class="form-control" placeholder="Enter a public comment" required="true" id="commentbox">
          
            </div>
        </form>
@@ -250,7 +250,16 @@ header.masthead {
   {%endblock%}
   {% block js %}
   <script>
+   var commentbox = document.getElementById("commentbox"); 
+   textBox.addEventListener("keyup", function (event) { 
   
+  // Checking if key pressed is ENTER or not 
+  // if the key pressed is ENTER 
+  // click listener on button is called 
+  if (event.keyCode == 13) { 
+      textbox.click(); 
+  } 
+}); 
    var colors =['#534e52','#682c0e','#f05454','#ffc1b6','#23689b','#ffc75f',"#ffc75f"] ;
    {% for i in comment  %}
 document.querySelector('.logo{{i.sno}}').style.background=
