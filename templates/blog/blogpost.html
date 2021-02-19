@@ -251,14 +251,15 @@ header.masthead {
   {% block js %}
   <script>
    var commentbox = document.getElementById("commentbox"); 
-   textBox.addEventListener("keyup", function (event) { 
+   commentbox.addEventListener("keyup", function (event) { 
   
   // Checking if key pressed is ENTER or not 
   // if the key pressed is ENTER 
   // click listener on button is called 
   if (event.keyCode == 13) { 
-      textbox.click(); 
+    commentbox.innerHTML=""; 
   } 
+
 }); 
    var colors =['#534e52','#682c0e','#f05454','#ffc1b6','#23689b','#ffc75f',"#ffc75f"] ;
    {% for i in comment  %}
