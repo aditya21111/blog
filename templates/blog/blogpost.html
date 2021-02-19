@@ -107,19 +107,33 @@
 
 {% block body %}
 {% load humanize %}
+<header class="masthead" style="background-image: url('https://res.cloudinary.com/dus8g1azl/image/upload/v1/{{post.thumbnail}}')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-heading">
+          <h1>{{post.title}}</h1>
+          <h2 class="subheading">{{post.imtro}}</h2>
+          <span class="meta">Posted by
+            <a href="#">{{post.writer}}</a>
+            {{post.pub_date}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
 
 <div class="container">
   <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto">
   
         <article class="blog-post">
-          <h3 class="pb-4 mb-4 font-italic border-bottom">
-            {{post.title}}
-          </h3>
+         
 {%load static%}
        
-          <p  style="text-transform: lowercase;" class="blog-post-meta">{{post.pub_date}} By <a href="#">{{post.writer}}</a></p>
-
+         
           <div class="banner" id="banner" >
        
           {% load cloudinary %}
