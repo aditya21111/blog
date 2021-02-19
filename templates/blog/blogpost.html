@@ -118,10 +118,11 @@ header.masthead {
 
 header.masthead {
   height: 50vh;
+  
+  background-size:cover;
+  background-blend-mode: multiply;
 }
-.overlay{
-  background:linear-gradient(0deg, rgba(255, 0, 150, 0.3), rgba(255, 0, 150, 0.3))
-}
+
 
 {% endblock %}
 
@@ -132,7 +133,7 @@ header.masthead {
        
 {% load cloudinary %}
 
-<header class="masthead" style="background-image: url('https://res.cloudinary.com/dus8g1azl/image/upload/v1/{{post.thumbnail}}')">
+<header class="masthead" style="background: url('https://res.cloudinary.com/dus8g1azl/image/upload/v1/{{post.thumbnail}} rgba(255, 0, 150, 0.3);')">
   <div class="overlay"></div>
   <div class="container">
     <div class="row">
