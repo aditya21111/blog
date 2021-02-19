@@ -12,19 +12,17 @@ tinymce.init({
         'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
         'table emoticons template paste help'
       ],
-      
+      image_dimensions: false,
+      image_class_list: [
+         {title: 'Responsive', value: 'img-responsive'}
+     ],
       toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
         'bullist numlist outdent indent | link image | print preview media fullpage | ' +
         'forecolor backcolor emoticons | help',
-        image_dimensions: false,
-        image_class_list: [
-           {title: 'Responsive', value: 'img-responsive'}
-       ],
       menu: {
         favs: {title: 'My Favorites', items: 'code visualaid | searchreplace | emoticons'}
       },
       menubar: 'favs file edit view insert format tools table help',
-      content_css: 'css/content.css',
-     
+      content_css: 'css/content.css'
     });
 }
