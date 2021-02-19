@@ -12,6 +12,9 @@ tinymce.init({
         'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
         'table emoticons template paste help'
       ],
+      image_class_list: [
+    {title: 'Responsive', value: 'img-responsive'}
+],
       toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
         'bullist numlist outdent indent | link image | print preview media fullpage | ' +
         'forecolor backcolor emoticons | help',
