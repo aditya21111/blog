@@ -141,6 +141,9 @@
             
          
             </form>
+            {% load socialaccount %}
+
+<a href="{% provider_login_url "openid" openid="https://www.google.com/accounts/o8/id" next="/success/url/" %}">Google</a>
             <a href="{% url 'social:begin' 'github' %}">Login with GitHub</a><br>
             <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
             <a href='{% url "social:begin" "google" %}'>Google+</a>
