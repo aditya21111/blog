@@ -17,7 +17,25 @@
 
     <style>
        {% block css %} 
-       
+  .fb{
+  background-color: #3B5998;
+  color: white;
+}
+
+.twitter {
+  background-color: #55ACEE;
+  color: white;
+}
+
+.google {
+  background-color: #dd4b39;
+  color: white;
+}
+.github{
+  background-color: #333;
+  color: white;
+
+}
        {% endblock %}
   </style>
 
@@ -149,7 +167,7 @@
               <a href="{% url 'google_login' %}" class="google btn"><i class="fa fa-google fa-fw">
                 </i> Login with Google+
               </a>
-              <a href="{% url 'social:begin' 'github' %}"><i class="fab fa-github"></i>Login with GitHub</a>
+              <a href="{% url 'social:begin' 'github' %}" class="github btn"><i class="fab fa-github"></i>Login with GitHub</a>
             </div>
           
           
