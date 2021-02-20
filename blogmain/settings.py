@@ -51,6 +51,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "django.contrib.humanize",
     'tinymce',
+     'django.contrib.sites',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
     'social_django',
     'cloudinary_storage',
     'cloudinary',
@@ -60,6 +66,8 @@ INSTALLED_APPS = [
 
     
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -101,9 +109,10 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.github.GithubOAuth2',
     'social_core.backends.twitter.TwitterOAuth',
     'social_core.backends.facebook.FacebookOAuth2',
-
+      'allauth.account.auth_backends.AuthenticationBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
+
 
 SOCIAL_AUTH_GITHUB_KEY = 'fdcbb04aef562f47d3dd'
 SOCIAL_AUTH_GITHUB_SECRET = '98c5112d0d9dc6f97d9b1edef771126c74e964ec'
