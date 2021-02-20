@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'cloudinary',
     "blog",
     "home",
+    'social_django',  # <--
+
     
 ]
 
