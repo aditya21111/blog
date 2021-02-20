@@ -163,10 +163,10 @@ def profile(request):
     
     
     
-    try:
     
-        return render(request,"home/profile.html",{"profile":userpic})
+    
+    return render(request,"home/profile.html",{"profile":userpic})
 
-    except Exception as e:
-        return HttpResponse(f"server error {e}")
+   
+        
     
