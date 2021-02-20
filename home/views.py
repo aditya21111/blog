@@ -124,32 +124,30 @@ def logout(request):
 
 
 def profile(request):
-    try:
-        if request.method=="POST":
-            try:
-                userimg=request.FILES['userimg']
-            except Exception as e:
+    
+    if request.method=="POST":
+        try:
+            userimg=request.FILES['userimg']
+        except Exception as e:
                 
-                count=userprofile.objects.count()
-                userimages=userprofile.objects.filter(user=request.user,sno=count)
-                for i in userimages:
-                    userimg=i.pic
-                    print(userimg)
-            tel=request.POST.get('tel','')
-            country=request.POST.get('country',"")
-            state=request.POST.get('state',"")
-            user=request.user
+            count=userprofile.objects.count()
+            userimages=userprofile.objects.filter(user=request.user,sno=count)
+            for i in userimages:
+                userimg=i.pic
+                print(userimg)
+        tel=request.POST.get('tel','')
+        country=request.POST.get('country',"")
+        state=request.POST.get('state',"")
+         user=request.user
                 
-            profile=userprofile(pic=userimg,tel=tel,state=state,country=country,user=user)
+        profile=userprofile(pic=userimg,tel=tel,state=state,country=country,user=user)
                 
-            profile.save()
-            messages.success(request,'profile updated successfully 😃')   
+        profile.save()
+        messages.success(request,'profile updated successfully 😃')   
             
-            return redirect("/blog")
+        return redirect("/blog")
             
-    except Exception as e:
-        return HttpResponse(e )    
-
+    
         
         try:
             userpic=userprofile.objects.filter(user=request.user).order_by("-updated_at").first()
@@ -165,7 +163,10 @@ def profile(request):
     
     
     
-
+    try:
     
-    return render(request,"home/profile.html",{"profile":userpic})
-    return HttpResponse("manage your profile")
+        return render(request,"home/profile.html",{"profile":userpic})
+
+    except Exception as e:
+        return HttpResponse(f"server error {e}")
+    
