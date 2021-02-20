@@ -16,3 +16,6 @@ urlpatterns = [
     path("profile/",views.profile,name="profile")
     
 ]
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = 'home'
