@@ -107,6 +107,9 @@ AUTHENTICATION_BACKENDS = (
 
 SOCIAL_AUTH_GITHUB_KEY = 'fdcbb04aef562f47d3dd'
 SOCIAL_AUTH_GITHUB_SECRET = '98c5112d0d9dc6f97d9b1edef771126c74e964ec'
+
+SOCIAL_AUTH_FACEBOOK_KEY = '471842800494564'  # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = '0a8fabcac22c0010d8f167ca184656cb'  # App Secret
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
