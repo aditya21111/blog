@@ -49,11 +49,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "django.contrib.humanize",
     'tinymce',
+    'social_django',
     'cloudinary_storage',
     'cloudinary',
     "blog",
     "home",
-    'social_django',  # <--
+    
 
     
 ]
