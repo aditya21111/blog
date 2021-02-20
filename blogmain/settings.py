@@ -68,6 +68,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',  # <--
+
 ]
 
 ROOT_URLCONF = 'blogmain.urls'
@@ -83,6 +85,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                 'social_django.context_processors.backends',  # <--
+                'social_django.context_processors.login_redirect', 
             ],
         },
     },
@@ -90,7 +95,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'blogmain.wsgi.application'
 
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.facebook.FacebookOAuth2',
 
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_GITHUB_KEY = 'fdcbb04aef562f47d3dd'
+SOCIAL_AUTH_GITHUB_SECRET = '98c5112d0d9dc6f97d9b1edef771126c74e964ec'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
