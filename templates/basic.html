@@ -16,8 +16,7 @@
 
 
     <style>
-       {% block css %} 
-  .fb{
+      .fb{
   background-color: #3B5998;
   color: white;
 }
@@ -36,6 +35,8 @@
   color: white;
 
 }
+       {% block css %} 
+  
        {% endblock %}
   </style>
 
@@ -167,7 +168,7 @@
               <a href="{% url 'google_login' %}" class="google btn"><i class="fa fa-google fa-fw">
                 </i> Login with Google+
               </a>
-              <a href="{% url 'social:begin' 'github' %}" class="github btn"><i class="fab fa-github"></i>Login with GitHub</a>
+        <a href="{% url 'social:begin' 'github' %}" class="github btn"><i class="fab fa-github"></i>Login with GitHub</a>
             </div>
           
           
