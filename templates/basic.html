@@ -143,10 +143,9 @@
             </form>
             {% load socialaccount %}
 
-            <a href="{% url 'account_login' %}">Login?</a>
+            <a href="{% url 'google_login' %}">Login with google</a>
             <a href="{% url 'social:begin' 'github' %}">Login with GitHub</a><br>
-            <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
-            <a href='{% url "social:begin" "google" %}'>Google+</a>
+            
 
         </div>
     
