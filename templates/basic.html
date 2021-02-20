@@ -156,7 +156,8 @@
               </a>
         <a href="{% url 'social:begin' 'github' %}" class="github btnnn"><i class="fab fa-github"></i>Login with GitHub</a>
             </div>
-          
+            <br>
+            <h6 class="text-muted">Or login manually</h6>
           
             <form action="/login/" method="POST"> {% csrf_token %}
               <div class="mb-3">
@@ -167,14 +168,14 @@
               <div class="mb-3">
           
                 <label for="inputPassword4" class="form-label">Password</label>
-                <input type="password" class="form-control" name="loginpass" id="loginpass">
+                <input type="password" class="form-control" name="loginpass" placeholder="Enter your password" id="loginpass">
   
             </div>
   
               <div class="form-check">
               
                    
-               <button type="submit" href="#" class="btn btn-primary active mb-3 " aria-current="page">Submit</button>
+               <button type="submit" href="#" class="btn btn-primary active  " aria-current="page">Submit</button>
               </div>
               
           
