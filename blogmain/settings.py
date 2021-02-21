@@ -66,6 +66,8 @@ INSTALLED_APPS = [
 
     
 ]
+INSTALLED_APPS += ['django_social_share']
+
 
 SITE_ID = 1
 
@@ -98,6 +100,7 @@ TEMPLATES = [
 
                  'social_django.context_processors.backends',  # <--
                 'social_django.context_processors.login_redirect', 
+                'django.template.context_processors.request',
             ],
         },
     },
