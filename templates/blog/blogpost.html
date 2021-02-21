@@ -142,7 +142,10 @@ header.masthead .post-heading .subheading{font-size:30px}}
   </div>
 </header>
 
-<a href="">{% post_to_facebook <object_or_url> <link_text> <link_class> %}</a>
+<a href="https://plus.google.com/share?url=http://writer-hub.heroku{{ request.get_full_path|urlencode }}"></a>
+<a href="http://www.linkedin.com/shareArticle?url=http://www.writer-hub.herokuapp.com{{ request.get_full_path|urlencode }}&title=<your title>&summary=<your desc>&source=http://www.writer-hub.herokuapp.com"></a>
+<a href="http://www.facebook.com/sharer/sharer.php?u=http://your-domain{{ request.get_full_path|urlencode }}"></a>
+
   
 {% autoescape %}
 <div class="container">
