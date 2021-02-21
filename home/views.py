@@ -163,19 +163,13 @@ def profile(request):
     
     
     
-<<<<<<< HEAD
   
     
     return render(request,"home/profile.html",{"profile":userpic})
 
    
     
-=======
-    
-    
-    return render(request,"home/profile.html",{"profile":userpic})
 
    
         
     
->>>>>>> c2225b01348c4bdaf68e028516aceb4585539c67
