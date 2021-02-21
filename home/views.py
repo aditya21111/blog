@@ -129,7 +129,7 @@ def profile(request):
         try:
             userimg=request.FILES['userimg']
         except Exception as e:
-                
+            pass
             count=userprofile.objects.count()
             userimages=userprofile.objects.filter(user=request.user,sno=count)
             for i in userimages:
@@ -138,7 +138,7 @@ def profile(request):
         tel=request.POST.get('tel','')
         country=request.POST.get('country',"")
         state=request.POST.get('state',"")
-         user=request.user
+        user=request.user
                 
         profile=userprofile(pic=userimg,tel=tel,state=state,country=country,user=user)
                 
@@ -163,9 +163,19 @@ def profile(request):
     
     
     
+<<<<<<< HEAD
   
     
     return render(request,"home/profile.html",{"profile":userpic})
 
    
     
+=======
+    
+    
+    return render(request,"home/profile.html",{"profile":userpic})
+
+   
+        
+    
+>>>>>>> c2225b01348c4bdaf68e028516aceb4585539c67
