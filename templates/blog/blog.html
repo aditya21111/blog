@@ -73,13 +73,10 @@
     width:50vw;
   }
 
-  p{
-    
-    font-size:0.9rem;
-    margin-bottom:0;
-    padding:0;
-  }
 
+#imtro{
+      display:none;
+}
   .date{
     margin-top:0.2rem;
     font-size:0.7rem;
@@ -115,7 +112,7 @@
             <div class="mb-1 text-muted date">{{i.pub_date}}</div>
             <h4 class="mb-2">{{i.title}}</h4>
            
-        
+             <p class="text-muted" id="imtro">{{post.imtro|truncatechars:30}}</p>
             <a href="{{i.slug}}" class="stretched-link sm text-primary" id="continue"> Continue reading...</a>
           </div>
        
