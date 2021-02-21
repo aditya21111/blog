@@ -143,7 +143,7 @@ header.masthead .post-heading .subheading{font-size:30px}}
 </header>
 
 {% load social_share %}
-<a href="{% post_to_facebook object_or_url  %}"><i class="fa fa-facebook"></i></a>
+<i class="fa fa-facebook"><a href="{% post_to_facebook object_or_url  %}"></a></i>
 <i class="fa fa-envelope">{% send_email object.title ": {{object.title}}. Check it out!" object_or_url  %}</i>
 <i class="fa fa-whatsapp">{% post_to_whatsapp object_or_url  %}</i>
 <i class="fa fa-telegram">{% post_to_telegram "New Song: {{object.title}}" object_or_url %}</i>
