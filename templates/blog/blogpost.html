@@ -172,12 +172,12 @@ a{
 </header>
 
 {% load social_share %}
-{% post_to_facebook object_or_url " " "fa fa-facebook" %}
-{% send_email object.title "New post: {{object.title}}. Check it out!" object_or_url " " "fa fa-envelope" %}
+{% post_to_facebook object_or_url " " "fa fa-facebook facebook" %}
+{% send_email object.title "New post: {{object.title}}. Check it out!" object_or_url " " "fa fa-envelope email" %}
 
 
-{% post_to_whatsapp object_or_url " " "fa fa-whatsapp" %}
-{% post_to_telegram "{{object.title}}" object_or_url " " "fa fa-telegram"%}
+{% post_to_whatsapp object_or_url " " "fa fa-whatsapp whatsapp" %}
+{% post_to_telegram "{{object.title}}" object_or_url " " "fa fa-telegram telegram"%}
 
 
 <div class="container">
