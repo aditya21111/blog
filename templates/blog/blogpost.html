@@ -144,7 +144,7 @@ header.masthead .post-heading .subheading{font-size:30px}}
 
 {% load social_share %}
 {% post_to_facebook object_or_url " " "fa fa-facebook" %}
-{% send_email   object_or_url  "fa fa-envelope" %}
+{% send_email object.title "New post: {{object.title}}. Check it out!" object_or_url  "fa fa-envelope" %}
 
 
 {% post_to_whatsapp object_or_url " " "fa fa-whatsapp" %}
