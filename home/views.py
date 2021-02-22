@@ -118,6 +118,7 @@ def login(request):
 
 
 def logout(request):
+    
     logout_user(request)
     messages.success(request,"successfully loged out !")
     return redirect("/blog")
