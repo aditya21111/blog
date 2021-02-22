@@ -142,6 +142,27 @@ h4.mb-2 {
    
     </div>
   
+{% if blog.has_other_pages %}
+<ul class="pagination">
+  {% if blog.has_previous %}
+    <li><a href="?page={{ blog.previous_page_number }}">&laquo;</a></li>
+  {% else %}
+    <li class="disabled"><span>&laquo;</span></li>
+  {% endif %}
+  {% for i in blog.paginator.page_range %}
+    {% if blog.number == i %}
+      <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+    {% else %}
+      <li><a href="?page={{ i }}">{{ i }}</a></li>
+    {% endif %}
+  {% endfor %}
+  {% if blog.has_next %}
+    <li><a href="?page={{ blog.next_page_number }}">&raquo;</a></li>
+  {% else %}
+    <li class="disabled"><span>&raquo;</span></li>
+  {% endif %}
+</ul>
+{% endif %}
    
      {% endblock body %} 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

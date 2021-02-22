@@ -1,7 +1,7 @@
 from django.shortcuts import render,HttpResponse,redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
-
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from blog.models import Blogpost,comments
 from home.models import userprofile
@@ -9,8 +9,16 @@ from home.models import userprofile
 # Create your views here.
 def blogHome(request):
     blog=Blogpost.objects.all().order_by("-pub_date")
-
+    page = request.GET.get('page', 1)
     
+    paginator = Paginator(blog, 1)
+    try:
+        blog = paginator.page(page)
+    except PageNotAnInteger:
+        blog = paginator.page(1)
+    except EmptyPage:
+        blog = paginator.page(paginator.num_pages)
+
 
     return render(request,"blog/blog.html",{"blog":blog})
 
@@ -18,6 +26,7 @@ def blogPost(request,slug):
   
     try:
         post=Blogpost.objects.filter(slug=slug)[0]
+        
         otherPosts=Blogpost.objects.exclude(slug=slug)
         comment=comments.objects.filter(post=post).order_by("-timestamp") 
 
