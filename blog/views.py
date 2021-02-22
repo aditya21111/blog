@@ -11,7 +11,7 @@ def blogHome(request):
     blog=Blogpost.objects.all().order_by("-pub_date")
     page = request.GET.get('page', 1)
     
-    paginator = Paginator(blog, 1)
+    paginator = Paginator(blog, 12)
     try:
         blog = paginator.page(page)
     except PageNotAnInteger:
