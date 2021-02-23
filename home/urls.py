@@ -12,7 +12,8 @@ urlpatterns = [
     path("signup/",views.signup,name="signup"),
     path("logout/",views.logout,name="logout"),
     path('accounts/', include('allauth.urls')),
-    re_path(r'^oauth/', include('social_django.urls', namespace='social')),  # <--
+    re_path(r'^oauth/', include('social_django.urls', namespace='social')), 
+    re_path(r'^', include('django.contrib.auth.urls')), # <--
     
     path("profile/",views.profile,name="profile")
     
