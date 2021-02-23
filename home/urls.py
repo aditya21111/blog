@@ -14,8 +14,11 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     re_path(r'^oauth/', include('social_django.urls', namespace='social')), 
     
-    path('accounts/', include('django.contrib.auth.urls')),# <--
-    
+    path('password_reset/', views.PasswordResetView.as_view(), name='password_reset'),
+    path('password_reset/done/', views.PasswordResetDoneView.as_view(), name='password_reset_done'),
+    path('reset/<uidb64>/<token>/', views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('reset/done/', views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
+]
     path("profile/",views.profile,name="profile")
     
 ]
