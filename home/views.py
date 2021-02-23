@@ -4,6 +4,10 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib.auth import authenticate, login as user_login ,logout as logout_user
+from django.core.mail import BadHeaderError, send_mail
+from django.http import HttpResponse, HttpResponseRedirect
+
+
 
 
 from blog.models import Blogpost 
@@ -23,6 +27,14 @@ def contact(request):
         contact.save()
         contacted=True
         return render(request,"home/contact.html",{"contacted":contacted,"name":name})
+        
+        try:
+            send_mail(desc, "thanks for contacting", email)
+        except BadHeaderError:
+            return HttpResponse('Invalid header found.')
+        
+    
+       
     return render(request,"home/contact.html")
 
 def search(request):
