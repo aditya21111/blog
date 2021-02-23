@@ -27,15 +27,12 @@ def contact(request):
         contact.save()
         contacted=True
         try:
-            send_mail(desc, "thanks for contacting","writerhubhere@gmail.com", [email])
+            send_mail("Thank you 😊", f"thanks for contacting us {name}. we are working on your issue ","writerhubhere@gmail.com", [email])
         except Exception as e:
             return HttpResponse(e)
         return render(request,"home/contact.html",{"contacted":contacted,"name":name})
         
-        try:
-            send_mail(desc, "thanks for contacting", email)
-        except BadHeaderError:
-            return HttpResponse('Invalid header found.')
+       
         
     
        
