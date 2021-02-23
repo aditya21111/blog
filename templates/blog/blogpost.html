@@ -266,8 +266,9 @@ a{
 
 <div class="container">
   <div class="row">
-   {% for i in comment  %}
+
       <div class="col-md-8">
+        {% for i in comment  %}
           <div class="media g-mb-30 media-comment">
             <div class="logo{{i.sno}} logo"><span id="userlogo">
           
@@ -279,11 +280,11 @@ a{
                   <h5 class="h5 g-color-gray-dark-v1 mb-0">{{i.user}}</h5>
                   <span class="g-color-gray-dark-v4 g-font-size-12">{{i.timestamp|naturaltime}}</span>
                 </div>
-          
+          </div>
                 <p> {{i.comment|truncatechars:300}}</p>
-          
+                {% endfor %}
               </div>
-              {% endfor %}
+            
           
       </div>
       <div class="col-md-4">
