@@ -29,8 +29,8 @@ def contact(request):
         
         try:
             subject, from_email, to = 'Thank you', 'writerhubhere@gmail.com', email
-            text_content = "Hey "
-            html_content = f'<strong>{name}</strong>\n Thank you for contacting us\n We have received your enquiry and will respond you within 24 hours. For urgent enquiries please call us on one of the number below\n +91 some number'
+            text_content = ""
+            html_content = f'Hey <strong>{name}</strong>\n Thank you for contacting us\n We have received your enquiry and will respond you within 24 hours. For urgent enquiries please call us on one of the number below\n +91 some number'
             msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
             msg.attach_alternative(html_content, "text/html")
             msg.send()
