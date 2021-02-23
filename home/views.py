@@ -27,7 +27,7 @@ def contact(request):
         contact.save()
         contacted=True
         try:
-            send_mail(desc, "thanks for contacting", email)
+            send_mail(desc, "thanks for contacting","writerhubhere@gmail.com", email)
         except Exception as e:
             return HttpResponse(e)
         return render(request,"home/contact.html",{"contacted":contacted,"name":name})
