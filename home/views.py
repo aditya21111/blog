@@ -27,7 +27,7 @@ def contact(request):
         contact.save()
         contacted=True
         try:
-            send_mail("Thank you 😊", f"thanks for contacting us {name}. we are working on your issue ","writerhubhere@gmail.com", [email])
+            send_mail("Thank you 😊", f"Hey , {Aditya} Thank you for contacting us\n We have received your enquiry and will respond you within 24 hours. For urgent enquiries please call us on one of the number below\n +91 some number ","writerhubhere@gmail.com", [email])
         except Exception as e:
             return HttpResponse(e)
         return render(request,"home/contact.html",{"contacted":contacted,"name":name})
