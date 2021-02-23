@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import authenticate, login as user_login ,logout as logout_user
 from django.core.mail import BadHeaderError, send_mail
 from django.http import HttpResponse, HttpResponseRedirect
-
+from django.core.mail import EmailMultiAlternatives
 
 
 
@@ -26,10 +26,20 @@ def contact(request):
         contact=Contact(name=name,email=email,phone=phone,desc=desc)
         contact.save()
         contacted=True
+        
         try:
-            send_mail("Thank you 😊", f"Hey , {name} Thank you for contacting us\n We have received your enquiry and will respond you within 24 hours. For urgent enquiries please call us on one of the number below\n +91 some number ","writerhubhere@gmail.com", [email])
+            subject, from_email, to = 'Thank you', 'writerhubhere@gmail.com', email
+            text_content = "Hey "
+            html_content = f'<strong>{name}</strong>\n Thank you for contacting us\n We have received your enquiry and will respond you within 24 hours. For urgent enquiries please call us on one of the number below\n +91 some number'
+            msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+            msg.attach_alternative(html_content, "text/html")
+            msg.send()
         except Exception as e:
-            return HttpResponse(e)
+            return HttpResponse(e)  
+        # try:
+        #     send_mail("Thank you 😊", f"Hey , {name} Thank you for contacting us\n We have received your enquiry and will respond you within 24 hours. For urgent enquiries please call us on one of the number below\n +91 some number ","writerhubhere@gmail.com", [email])
+        # except Exception as e:
+        #     return HttpResponse(e)
         return render(request,"home/contact.html",{"contacted":contacted,"name":name})
         
        
