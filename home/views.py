@@ -26,6 +26,7 @@ def contact(request):
         contact=Contact(name=name,email=email,phone=phone,desc=desc)
         contact.save()
         contacted=True
+        send_mail(desc, "thanks for contacting", email)
         return render(request,"home/contact.html",{"contacted":contacted,"name":name})
         
         try:
