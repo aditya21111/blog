@@ -137,9 +137,7 @@ def login(request):
        
 
     else:
-        
-        
-        user_login(request)
+        return HttpResponse("go to /blog and login")
 
 
 def logout(request):
