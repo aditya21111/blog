@@ -139,7 +139,7 @@ def login(request):
     else:
         
         
-        return HttpResponse("404")
+        user_login(request)
 
 
 def logout(request):
