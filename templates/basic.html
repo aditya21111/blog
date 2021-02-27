@@ -325,9 +325,11 @@ body {
   {% endblock  %}
   </body>
   <script> 
+  document.querySelector(".banner").style.display='none';
   window.onload = function(){
     //hide the preloader
     document.querySelector(".wrap").style.display = "none";
+
 }</script>
   {% block js %}
   <script>
