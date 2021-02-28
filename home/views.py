@@ -149,16 +149,15 @@ def logout(request):
 
 
 def profile(request):
-    try:
-        if request.method=="POST":
-            try:
-                userimg=request.FILES['userimg']
+    if request.method=="POST":
+        try:
+            userimg=request.FILES['userimg']
             
-                count=userprofile.objects.count()
-                userimages=userprofile.objects.filter(user=request.user,sno=count)
-                for i in userimages:
-                    userimg=i.pic
-                    print(userimg)
+            count=userprofile.objects.count()
+            userimages=userprofile.objects.filter(user=request.user,sno=count)
+            for i in userimages:
+                userimg=i.pic
+                print(userimg)
             tel=request.POST.get('tel','')
             country=request.POST.get('country',"")
             state=request.POST.get('state',"")
@@ -168,24 +167,24 @@ def profile(request):
                     
             profile.save()
 
-            except Exception as e:
-                return HttpResponse(e)
-                messages.success(request,'profile updated successfully 😃')  
-                return redirect("/blog") 
-    except Exception as e:
-        return HttpResponse(e)            
-            
+        except Exception as e:
+            return HttpResponse(e)
+            messages.success(request,'profile updated successfully 😃')  
+            return redirect("/blog") 
+    
             
     
-        
+    else:    
         try:
             userpic=userprofile.objects.filter(user=request.user).order_by("-updated_at").first()
+            return render(request,"home/profile.html",{"profile":userpic})
             print(userpic)
 
         except Exception as e:
+            return HttpResponse(e)
             messages.error( request,"profile not updated please try again")
             return redirect("/blog")
-    
+        
     
 
     
@@ -194,7 +193,7 @@ def profile(request):
     
   
     
-    return render(request,"home/profile.html",{"profile":userpic})
+    
 
    
     
