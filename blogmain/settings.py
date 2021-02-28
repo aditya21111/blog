@@ -36,7 +36,7 @@ LOGIN_REDIRECT_URL = 'home'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-ALLOWED_HOSTS = ["https://writer-hub.herokuapp.com"]
+ALLOWED_HOSTS = ["https://writer-hub.herokuapp.com","localhost"]
 TINYMCE_JS_URL = 'https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js'
 TINYMCE_COMPRESSOR = False
 
