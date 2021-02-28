@@ -152,7 +152,7 @@ def profile(request):
     if request.method=="POST":
         try:
             userimg=request.FILES['userimg']
-            
+            return HttpResponse(userimg)
             count=userprofile.objects.count()
             userimages=userprofile.objects.filter(user=request.user,sno=count)
             
