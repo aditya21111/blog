@@ -35,7 +35,7 @@
 {% endblock css %}
 {% block body %}
 {% load static %}
-    
+  {% load cloudinary %}  
     <div class="container rounded bg-white  mb-5">
        
            
@@ -49,7 +49,7 @@
           
       
 
-        <img src="https://res.cloudinary.com/dus8g1azl/image/upload/v1/{{profile.pic.url}}"  id="logoimg" alt="null">
+        <img src="{{profile.pic.url}}"  id="logoimg" alt="null">
                   
         
     </div>
