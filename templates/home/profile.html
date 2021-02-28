@@ -47,9 +47,11 @@
              {%if profile %}
             
           
-       
-        <img src="https://res.cloudinary.com/dus8g1azl/image/upload/v1/{{profile.pic.url}}"  id="logoimg" alt="null">
-        
+        {% for i in  profile%}
+
+        <img src="https://res.cloudinary.com/dus8g1azl/image/upload/v1/{{i.pic.url}}"  id="logoimg" alt="null">
+                  
+        {% endfor %}
     </div>
 
          {% else %}

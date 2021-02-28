@@ -170,8 +170,7 @@ def profile(request):
 
         except Exception as e:
             return HttpResponse(e)
-            messages.success(request,'profile updated successfully 😃')  
-            return redirect("/blog") 
+            
     
             
     
