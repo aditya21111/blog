@@ -164,11 +164,14 @@ def profile(request):
             profile=userprofile(pic=userimg,tel=tel,state=state,country=country,user=user)
                     
             profile.save()
+            messages.success(request,'profile updated successfully 😃')  
+            return redirect("/blog") 
+
 
         except Exception as e:
             return HttpResponse(e)
-            # messages.success(request,'profile updated successfully 😃')  
-            # return redirect("/blog") 
+            messages.success(request,'profile updated successfully 😃')  
+            return redirect("/blog") 
     
             
     
