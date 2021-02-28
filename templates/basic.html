@@ -319,7 +319,10 @@ body {
  <strong>{{message}}</strong>
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
+
 {% endfor %}
+</body>
+
 <script> 
   document.querySelector(".banner").style.display='none';
   window.onload = function(){
@@ -330,7 +333,6 @@ body {
 }</script>
   {% block body %}
   {% endblock  %}
-  </body>
 
   {% block js %}
   <script>
