@@ -149,28 +149,30 @@ def logout(request):
 
 
 def profile(request):
-    
-    if request.method=="POST":
-        try:
-            userimg=request.FILES['userimg']
-        except Exception as e:
-            pass
-            count=userprofile.objects.count()
-            userimages=userprofile.objects.filter(user=request.user,sno=count)
-            for i in userimages:
-                userimg=i.pic
-                print(userimg)
-        tel=request.POST.get('tel','')
-        country=request.POST.get('country',"")
-        state=request.POST.get('state',"")
-        user=request.user
-                
-        profile=userprofile(pic=userimg,tel=tel,state=state,country=country,user=user)
-                
-        profile.save()
-        messages.success(request,'profile updated successfully 😃')   
+    try:
+        if request.method=="POST":
+            try:
+                userimg=request.FILES['userimg']
+            except Exception as e:
+                pass
+                count=userprofile.objects.count()
+                userimages=userprofile.objects.filter(user=request.user,sno=count)
+                for i in userimages:
+                    userimg=i.pic
+                    print(userimg)
+            tel=request.POST.get('tel','')
+            country=request.POST.get('country',"")
+            state=request.POST.get('state',"")
+            user=request.user
+                    
+            profile=userprofile(pic=userimg,tel=tel,state=state,country=country,user=user)
+                    
+            profile.save()
+            messages.success(request,'profile updated successfully 😃')  
+            return redirect("/blog") 
+    except Exception as e:
+        return HttpResponse(e)            
             
-        return redirect("/blog")
             
     
         
