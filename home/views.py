@@ -154,7 +154,7 @@ def profile(request):
             try:
                 userimg=request.FILES['userimg']
             except Exception as e:
-                pass
+                print(e)
                 count=userprofile.objects.count()
                 userimages=userprofile.objects.filter(user=request.user,sno=count)
                 for i in userimages:
