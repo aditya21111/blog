@@ -321,8 +321,12 @@ body {
 </div>
 
 {% endfor %}
-</body>
 
+
+  {% block body %}
+  {% endblock  %}
+
+</body>
 <script> 
  
   window.onload = function(){
@@ -331,9 +335,6 @@ body {
    
 
 }</script>
-  {% block body %}
-  {% endblock  %}
-
   {% block js %}
   <script>
 
