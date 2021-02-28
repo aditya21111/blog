@@ -320,11 +320,7 @@ body {
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 {% endfor %}
-
-  {% block body %}
-  {% endblock  %}
-  </body>
-  <script> 
+<script> 
   document.querySelector(".banner").style.display='none';
   window.onload = function(){
     //hide the preloader
@@ -332,6 +328,10 @@ body {
     document.querySelector(".banner").style.display='flex';
 
 }</script>
+  {% block body %}
+  {% endblock  %}
+  </body>
+
   {% block js %}
   <script>
 
