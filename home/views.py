@@ -49,26 +49,27 @@ def contact(request):
     return render(request,"home/contact.html")
 
 def search(request):
-    
-    query=request.GET['query']
-    if len(query)  > 80:
-        posts = Blogpost.objects.none()
-        messages.error(request, f'You have reached the word limit (80) of search')
-    else:
-        titlesearch=Blogpost.objects.filter(title__icontains=query)
-        contentsearch=Blogpost.objects.filter(para1__icontains=query)
-        authorsearch=Blogpost.objects.filter(writer__icontains=query)
-        posts=titlesearch.union(contentsearch,authorsearch)
+    try:
+        query=request.GET['query']
+        if len(query)  > 80:
+            posts = Blogpost.objects.none()
+            messages.error(request, f'You have reached the word limit (80) of search')
+        else:
+            titlesearch=Blogpost.objects.filter(title__icontains=query)
+            contentsearch=Blogpost.objects.filter(para1__icontains=query)
+            authorsearch=Blogpost.objects.filter(writer__icontains=query)
+            posts=titlesearch.union(contentsearch,authorsearch)
 
-        # union -for merging query sets
+            # union -for merging query sets
 
-    if posts.count() == 0:
-        messages.error(request, 'Please use suitable keywords')
+        if posts.count() == 0:
+            messages.error(request, 'Please use suitable keywords')
 
-    params={"search":posts,'query':query}
-    
-    return render(request,"home/search.html",params)
-
+        params={"search":posts,'query':query}
+        
+        return render(request,"home/search.html",params)
+    except Exception as e:
+        return HttpResponse(e)
     
 
 def about(request):
