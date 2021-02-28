@@ -56,7 +56,7 @@ def search(request):
             messages.error(request, f'You have reached the word limit (80) of search')
         else:
             titlesearch=Blogpost.objects.filter(title__icontains=query)
-            contentsearch=Blogpost.objects.filter(para1__icontains=query)
+            contentsearch=Blogpost.objects.filter(content__icontains=query)
             authorsearch=Blogpost.objects.filter(writer__icontains=query)
             posts=titlesearch.union(contentsearch,authorsearch)
 
