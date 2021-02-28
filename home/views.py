@@ -155,9 +155,7 @@ def profile(request):
             
             count=userprofile.objects.count()
             userimages=userprofile.objects.filter(user=request.user,sno=count)
-            for i in userimages:
-                userimg=i.pic
-                print(userimg)
+            
             tel=request.POST.get('tel','')
             country=request.POST.get('country',"")
             state=request.POST.get('state',"")
@@ -169,8 +167,8 @@ def profile(request):
 
         except Exception as e:
             return HttpResponse(e)
-            messages.success(request,'profile updated successfully 😃')  
-            return redirect("/blog") 
+            # messages.success(request,'profile updated successfully 😃')  
+            # return redirect("/blog") 
     
             
     
