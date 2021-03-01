@@ -20,6 +20,7 @@ import dj_database_url
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+import socket
 
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&k3q+pmu)5%asj6yjpkag')
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -35,12 +36,13 @@ LOGIN_REDIRECT_URL = 'home'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-ALLOWED_HOSTS = ["https://writer-hub.herokuapp.com","localhost"]
+# DEBUG = False
+ALLOWED_HOSTS = ["https://writer-hub.herokuapp.com",'127.0.0.1']
 TINYMCE_JS_URL = 'https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js'
 TINYMCE_COMPRESSOR = False
 
-# Application definition
+
+DEBUG= True # Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -67,6 +69,7 @@ INSTALLED_APPS = [
     
 ]
 INSTALLED_APPS += ['django_social_share']
+
 
 
 SITE_ID = 1
@@ -194,11 +197,20 @@ MESSAGE_TAGS = {
 # Activate Django-Heroku
 django_heroku.settings(locals())
 
+
+# if 'SOME_ENV_VAR' in os.environ:
+#     debug = False
 # Heroku: Update database configuration from $DATABASE_URL.
+# if ON_HEROKU:
+#     DATABASE_URL = 'postgresql://<postgresql>'
+# else:
+# DATABASE_URL = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
+
+# DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
 db_from_env = dj_database_url.config()
 DATABASES = { 'default': dj_database_url.config() }
 
-
+print(os.environ)
 #sending emails
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
