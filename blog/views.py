@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from blog.models import Blogpost,comments
-from home.models import userprofile
+
 
 # Create your views here.
 def blogHome(request):
@@ -32,8 +32,8 @@ def blogPost(request,slug):
 
         
         if  request.user.is_authenticated:
-            profile=userprofile.objects.filter(user=request.user)
-            return render(request,"blog/blogpost.html",{"post":post,"others":otherPosts,"comment":comment,"profile":profile})
+            
+            return render(request,"blog/blogpost.html",{"post":post,"others":otherPosts,"comment":comment})
         return render(request,"blog/blogpost.html",{"post":post,"others":otherPosts,"comment":comment})
 
     except Exception as e:

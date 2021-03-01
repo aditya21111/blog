@@ -21,16 +21,4 @@ class Contact(models.Model):
     def __str__(self):
         return self.name
 
-class userprofile(models.Model):
-    pic=models.ImageField(blank=True,null=True,upload_to="media",default=None)
-    sno=models.AutoField(blank=True,primary_key=True,unique=True,default=None)
-    tel=models.CharField(default="1",null=True,max_length=12)
-    country=models.CharField(max_length=50,default='',null=True)
-    state=models.CharField(max_length=50,default='',null=True)
-    updated_at=models.DateTimeField(null=True,default=now)
-    
-    
-    user=models.ForeignKey(User,on_delete=models.CASCADE,default=None)
-    def __str__(self):
-        return self.user.get_username()
-  
+

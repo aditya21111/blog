@@ -1,5 +1,5 @@
 from django.shortcuts import render,HttpResponse,redirect
-from .models import Contact, userprofile
+from .models import Contact
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
@@ -151,43 +151,6 @@ def logout(request):
     return redirect("/blog")
 
 
-def profile(request):
-    if request.method=="POST":
-        try:
-            
-            userimg=request.FILES['userimg']
-            
-            tel=request.POST.get('tel','')
-            country=request.POST.get('country',"")
-            state=request.POST.get('state',"")
-            user=request.user
-     
-            profile=userprofile(pic=userimg,tel=tel,state=state,country=country,user=user)
-                    
-            profile.save()
-            condition=True
-            
-            messages.success(request,'profile updated successfully 😃')  
-            return render(request,"profile.html",{"condition":condition})
-            return redirect("/blog") 
-
-        except Exception as e:
-            print(str(e))
-            
-            tel=request.POST.get('tel','')
-            country=request.POST.get('country',"")
-            state=request.POST.get('state',"")
-            user=request.user
-            userimg2=userprofile.objects.filter(user=request.user).order_by("-updated_at").first()
-            userimg1=userimg2.pic.url
-            print(userimg1)
-            
-            profile=userprofile(pic=userimg1,tel=tel,state=state,country=country,user=user)
-                    
-            profile.save()
-            
-            messages.success(request,'profile updated successfully 😃')  
-            return redirect("/blog") 
 
 
                 
@@ -198,32 +161,6 @@ def profile(request):
     
             
     
-    else:    
-        try:
-            userpics=userprofile.objects.filter(user=request.user).order_by("-updated_at").first()
-            userpic=userpics.pic.url
-            return render(request,"home/profile.html",{"profile":userpic})
-            
-
-        except Exception as e:
-            print(e+"here")
-           
-            messages.error( request,"profile not updated please try again")
-            return redirect("/blog")
-        
-    
-
-    
-    
-    
-    
-  
-    
-    
-
-   
-    
-
    
         
     
