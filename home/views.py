@@ -155,7 +155,8 @@ def logout(request):
 def profile(request):
     return render(request,"home/profile.html")
 
-
+def policy(request):
+    return render(request,"home/policy.html")
                 
             
          

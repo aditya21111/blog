@@ -74,6 +74,35 @@ body {
   background-color: rgb(233, 114, 114);
   
 }
+
+
+
+.content {
+max-width: 650px;
+margin: 0 auto;
+text-align: center;
+position: relative;
+z-index: 2; }
+.content h2 {
+color: #243c4f;
+margin-bottom: 40px; }
+.content .form-control {
+height: 50px;
+border-color: #ffffff;
+border-radius:0;
+}
+.content.form-control:focus {
+box-shadow: none;
+border: 2px solid #243c4f;
+}
+ .content .btn {
+min-height: 50px; 
+border-radius:0;
+background: #243c4f;
+color: #fff;
+font-weight:600;
+}
+      
 .bubble {
     width: 50px;
     height: 50px;
@@ -120,7 +149,7 @@ body {
   text-align: center;
   color: #fff;
 }
-       {% block css %} 
+ {% block css %} 
   
        {% endblock %}
   </style>
@@ -386,20 +415,20 @@ body {
   
         <!--Grid column-->
         <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Links</h5>
+          <h5 class="text-uppercase">Join us </h5>
   
           <ul class="list-unstyled mb-0">
             <li>
-              <a href="#!" class="text-dark">Link 1</a>
+              <a href="https://github.com/aditya21111/" target="_blank" class="text-dark">GitHub</a>
             </li>
             <li>
-              <a href="#!" class="text-dark">Link 2</a>
+              <a href="https://www.facebook.com/profile.php?id=100025057099239" class="text-dark" target="_blank">Facebook</a>
             </li>
             <li>
-              <a href="#!" class="text-dark">Link 3</a>
+              <a href="https://www.instagram.com/124_aadi/" target="_blank" class="text-dark">Instagram</a>
             </li>
             <li>
-              <a href="#!" class="text-dark">Link 4</a>
+              <p class="text-dark">writerhubhere@gmail.com</p>
             </li>
           </ul>
         </div>
@@ -407,22 +436,16 @@ body {
   
         <!--Grid column-->
         <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase mb-0">Links</h5>
-  
-          <ul class="list-unstyled">
-            <li>
-              <a href="#!" class="text-dark">Link 1</a>
-            </li>
-            <li>
-              <a href="#!" class="text-dark">Link 2</a>
-            </li>
-            <li>
-              <a href="#!" class="text-dark">Link 3</a>
-            </li>
-            <li>
-              <a href="#!" class="text-dark">Link 4</a>
-            </li>
-          </ul>
+          <h5 class="text-uppercase mb-3" >NEWSLETTER</h5>
+          <div class="content">
+           
+          <div class="input-group">
+                 <input type="email" class="form-control" placeholder="Your email">
+                 <span class="input-group-btn">
+                 <button class="btn" type="submit">Subscribe Now</button>
+                 </span>
+                  </div>
+          </div>
         </div>
         <!--Grid column-->
       </div>
@@ -434,6 +457,7 @@ body {
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
       © 2020 Copyright:
       <a class="text-dark" href="https://writer-hub.herokuapp.com/">Writerhub</a>
+      <a class="text-dark" href="/policy"> | Privacy policy</a>
     </div>
     <!-- Copyright -->
   </footer>

@@ -299,7 +299,7 @@ a{
             
                      <div class="mb-3">
                        <input type="hidden" name=sno value={{post.post_id}} >
-                       <input type="text" name=comment class="form-control" placeholder="Enter a public reply" required="true" id="commentbox">
+                       <input type="text" name=comment class="form-control" placeholder="Enter a public reply" required="true" id="replybox">
                        <input type="hidden" name="parentSno" value="{{i.sno}}">
         
                       </div>
@@ -354,14 +354,7 @@ a{
    
    
   
-        <div class="p-4">
-          <h4 class="font-italic">Elsewhere</h4>
-          <ol class="list-unstyled">
-            <li><a href="https://github.com/aditya21111">GitHub</a></li>
-            <li><a href="#">Twitter</a></li>
-            <li><a href="#">Facebook</a></li>
-          </ol>
-        </div>
+     
     </div>
     </div>
   </div>   
@@ -380,6 +373,24 @@ a{
     commentbox.value=="";
     if (commentbox.value){
     commentbox.setAttribute("disabled", "");
+    console.log(a)
+  }
+    
+  } 
+
+}); 
+
+var replybox = document.getElementById("replybox"); 
+   replybox.addEventListener("keyup", function (event) { 
+  
+  // Checking if key pressed is ENTER or not 
+  // if the key pressed is ENTER 
+  // click listener on button is called 
+  if (event.keyCode == 13) { 
+    a=replybox.getAttribute('type')
+    replybox.value=="";
+    if (replybox.value){
+    replybox.setAttribute("disabled", "");
     console.log(a)
   }
     
