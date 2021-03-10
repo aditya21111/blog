@@ -32,8 +32,9 @@ class comments(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     
     post=models.ForeignKey(Blogpost,on_delete=models.CASCADE)
-    parent=models.ForeignKey('self',on_delete=models.CASCADE,null=True,default=None)
+    parent=models.ForeignKey('self',on_delete=models.CASCADE,null=True,default=None,blank=True)
     timestamp=models.DateTimeField( auto_now=False, auto_now_add=False ,default=now)
+    is_approved=models.BooleanField(default=False)
 
     def __str__(self):
         return self.comment[0:14] + ".....  " + "by " + self.user.username

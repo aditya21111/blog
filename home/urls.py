@@ -15,6 +15,7 @@ urlpatterns = [
     re_path(r'^oauth/', include('social_django.urls', namespace='social')), 
     
     re_path('^', include('django.contrib.auth.urls')),
+    path("profile/",views.profile,name="userprofile"),
    
 ]
     

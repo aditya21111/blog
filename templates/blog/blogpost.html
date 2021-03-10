@@ -194,6 +194,7 @@ a{
 {%load static%}
        
 {% load cloudinary %}
+{% load extras %}
 
 <header class="masthead" style="background-image: url('https://res.cloudinary.com/dus8g1azl/image/upload/v1/{{post.thumbnail}} ')">
   <div class="overlay"></div>
@@ -234,7 +235,7 @@ a{
             {{post.content|safe|escape}}
  
         </div>
-        </article><!-- /.blog-post -->
+        </article><!-- blog-post -->
         
         </div></div></div><hr>
         {%if user.is_authenticated%}
@@ -242,30 +243,31 @@ a{
         <form action="/blog/postComment" method="post">
          {% csrf_token %}
          <form>
- 
+        
           <div class="mb-3">
             <input type="hidden" name=sno value={{post.post_id}} >
             <input type="text" name=comment class="form-control" placeholder="Enter a public comment" required="true" id="commentbox">
-         
+            <input type="hidden" name="parentSno" value="">
            </div>
-       </form>
+        </form>
            {% else %}
- 
-<input class="form-control" id="disabledInput" type="text" placeholder="login to add comments" disabled>
-<div class="container">
+        <!-- if user is not authorised -->
+        <input class="form-control" id="disabledInput" type="text" placeholder="login to add comments" disabled>
+        <div class="container">
         </div>
-       </form>
-
-
-{%endif%}
-
-
-<div class="container">
-  <div class="row">
-
-      <div class="col-md-8">
+        </form>
+        
+        
+        {%endif%}
+        
+        
+        <div class="container">
+        <div class="row">
+        
+        <div class="col-md-8">
         {% for i in comment  %}
           <div class="media g-mb-30 media-comment">
+          
             <div class="logo{{i.sno}} logo"><span id="userlogo">
           
               {{i.user.get_short_name|slice:":1"}}</span></div>
@@ -278,12 +280,50 @@ a{
                 </div>
           
                 <p> {{i.comment|truncatechars:300}}</p>
+                <br>
+                {%if user.is_authenticated%}
+        
+                <a class="text-muted" data-bs-toggle="collapse" href="#replyBox{{i.sno}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                  Reply
+                </a>
               </div>
-                {% endfor %}
-              </div>
+                {%else%}
+                <input class="form-control" id="disabledInput" type="text" placeholder="login to add replies" disabled>
+        {% endif %}
+              
+              <div class="collapse"  id="replyBox{{i.sno}}">
+                
+                  <form action="/blog/postComment" method="post">
+                    {% csrf_token %}
+                    <form>
             
-          
-      </div>
+                     <div class="mb-3">
+                       <input type="hidden" name=sno value={{post.post_id}} >
+                       <input type="text" name=comment class="form-control" placeholder="Enter a public reply" required="true" id="commentbox">
+                       <input type="hidden" name="parentSno" value="{{i.sno}}">
+        
+                      </div>
+                  </form>
+              
+                  
+                    {% for reply in replyDict|get_val:i.sno %}
+                    <div class="replies reply{{reply.sno}} bg-danger my-2 ">
+                                <b> {{reply.user.username}} </b> <span class="badge badge-secondary ">{{reply.timestamp|naturaltime}}</span>
+                                <div>{{reply.comment}}</div> 
+                         
+                             
+                            {% endfor %}
+                          </div>
+                            </div>
+                      
+                        {% endfor %}
+                      </div>
+                                      
+                      </div>
+                    
+                  
+              </div>  
+              <div class="container">              
       <div class="col-md-4">
       
       {%for other in others%}
@@ -324,6 +364,7 @@ a{
         </div>
     </div>
     </div>
+  </div>   
 
   {%endblock%}
   {% block js %}
@@ -355,6 +396,12 @@ function toggle(){
   
 
 }
-{% endfor %}
+{% for reply in replyDict|get_val:i.sno %}
+var replies=document.getElementById("replyBox{{reply.sno}}")
+console.log(replies.length)
+
+ {% endfor %}
+{%endfor %}
+
    </script>
 {% endblock %}

@@ -1,0 +1,85 @@
+{%if user.is_authenticated%}
+        
+<form action="/blog/postComment" method="post">
+ {% csrf_token %}
+ <form>
+
+  <div class="mb-3">
+    <input type="hidden" name=sno value={{post.post_id}} >
+    <input type="text" name=comment class="form-control" placeholder="Enter a public comment" required="true" id="commentbox">
+    <input type="hidden" name="parentSno" value="">
+   </div>
+</form>
+   {% else %}
+<!-- if user is not authorised -->
+<input class="form-control" id="disabledInput" type="text" placeholder="login to add comments" disabled>
+<div class="container">
+</div>
+</form>
+
+
+{%endif%}
+
+
+<div class="container">
+<div class="row">
+
+<div class="col-md-8">
+{% for i in comment  %}
+  <div class="media g-mb-30 media-comment">
+  
+    <div class="logo{{i.sno}} logo"><span id="userlogo">
+  
+      {{i.user.get_short_name|slice:":1"}}</span></div>
+      
+    </div>
+      <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30 py-2">
+        <div class="g-mb-15">
+          <h5 class="h5 g-color-gray-dark-v1 mb-0">{{i.user}}</h5>
+          <span class="g-color-gray-dark-v4 g-font-size-12">{{i.timestamp|naturaltime}}</span>
+        </div>
+  
+        <p> {{i.comment|truncatechars:300}}</p>
+        <br>
+        {%if user.is_authenticated%}
+
+        <a class="text-muted" data-bs-toggle="collapse" href="#replyBox{{i.sno}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+          Reply
+        </a>
+
+        {%else%}
+        <input class="form-control" id="disabledInput" type="text" placeholder="login to add replies" disabled>
+{% endif %}
+      </div>
+      
+      <!-- <div class="collapse"  id="replyBox{{i.sno}}">
+        
+          <form action="/blog/postComment" method="post">
+            {% csrf_token %}
+            <form>
+    
+             <div class="mb-3">
+               <input type="hidden" name=sno value={{post.post_id}} >
+               <input type="text" name=comment class="form-control" placeholder="Enter a public reply" required="true" id="commentbox">
+               <input type="hidden" name="parentSno" value="{{i.sno}}">
+
+              </div>
+          </form>
+      
+          <div class="replies bg-danger my-2 ">
+            {% for reply in replyDict|get_val:i.sno %}
+           
+                        <b> {{reply.user.username}} </b> <span class="badge badge-secondary ">{{reply.timestamp|naturaltime}}</span>
+                        <div>{{reply.comment}}</div> -->
+                 
+                    </div>
+                    {% endfor %}
+                    </div>
+              </div>  
+                {% endfor %}
+
+                              
+              </div>
+            
+          
+      </div>

@@ -22,3 +22,9 @@ class Contact(models.Model):
         return self.name
 
 
+class Profile(models.Model):
+    user=models.OneToOneField(User,blank=True, on_delete=models.CASCADE)
+    pic=models.ImageField( upload_to="media/profiles",blank=True)
+
+    def __str__(self):
+        return str(self.user) + " updated his profile."

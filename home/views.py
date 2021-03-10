@@ -150,7 +150,10 @@ def logout(request):
     messages.success(request,"successfully loged out !")
     return redirect("/blog")
 
+#profile update/create
 
+def profile(request):
+    return render(request,"home/profile.html")
 
 
                 

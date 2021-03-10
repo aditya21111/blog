@@ -207,10 +207,11 @@ django_heroku.settings(locals())
 # DATABASE_URL = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 
 # DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
+# heroku
 db_from_env = dj_database_url.config()
 DATABASES = { 'default': dj_database_url.config() }
 
-print(os.environ)
+# print(os.environ)
 #sending emails
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
