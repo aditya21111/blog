@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     'cloudinary',
     "blog",
     "home",
+    'newsletter',
     
 
     

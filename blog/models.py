@@ -4,6 +4,8 @@ from django.utils.timezone import now
 
 from tinymce.models import HTMLField
 from tinymce.widgets import TinyMCE
+from django.template.defaultfilters import truncatechars
+
 
 # Create your models here.
 class Blogpost(models.Model):
@@ -35,6 +37,12 @@ class comments(models.Model):
     parent=models.ForeignKey('self',on_delete=models.CASCADE,null=True,default=None,blank=True)
     timestamp=models.DateTimeField( auto_now=False, auto_now_add=False ,default=now)
     is_approved=models.BooleanField(default=False)
+
+
+    
+    @property
+    def short_comment(self):
+        return truncatechars(self.comment, 20)
 
     def __str__(self):
         return self.comment[0:14] + ".....  " + "by " + self.user.username

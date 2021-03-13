@@ -435,18 +435,23 @@ font-weight:600;
         <!--Grid column-->
   
         <!--Grid column-->
+     
         <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
           <h5 class="text-uppercase mb-3" >NEWSLETTER</h5>
           <div class="content">
-           
+            <form action="/newsletter/subscribe" method="POST" >
           <div class="input-group">
-                 <input type="email" class="form-control" placeholder="Your email">
+            {% csrf_token %}
+                 <input type="email" class="form-control" name="subMail" placeholder="Your email">
                  <span class="input-group-btn">
                  <button class="btn" type="submit">Subscribe Now</button>
                  </span>
+               
                   </div>
+                </form>
           </div>
         </div>
+     
         <!--Grid column-->
       </div>
       <!--Grid row-->
