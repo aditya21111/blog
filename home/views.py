@@ -7,7 +7,10 @@ from django.contrib.auth import authenticate, login as user_login ,logout as log
 from django.core.mail import BadHeaderError, send_mail
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.mail import EmailMultiAlternatives
+from django.dispatch import receiver
 
+
+from django.contrib.auth.decorators import login_required
 
 
 from blog.models import Blogpost 
@@ -151,9 +154,13 @@ def logout(request):
     return redirect("/blog")
 
 #profile update/create
+@login_required
 
-def profile(request):
+def profile(request,  **kwargs):
+  
     return render(request,"home/profile.html")
+
+
 
 def policy(request):
     return render(request,"home/policy.html")

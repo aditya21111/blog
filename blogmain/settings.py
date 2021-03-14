@@ -73,7 +73,7 @@ INSTALLED_APPS += ['django_social_share']
 
 
 
-SITE_ID = 1
+SITE_ID=1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
