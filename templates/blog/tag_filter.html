@@ -4,6 +4,23 @@
     .details{
         height: 70vh;
     }
+    .card-body.musthead {
+   
+    background: no-repeat center center;
+    background-color: #868e96;
+    background-attachment: scroll;
+    position: relative;
+    background-size: cover;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #212529;
+    opacity: .3;
+}
 </style>
   
 {% endblock css %}
@@ -34,6 +51,7 @@
                                                    {% endfor %}
             </div>
             <div class="card-body musthead" style="background-image: url('https://res.cloudinary.com/dus8g1azl/image/upload/v1/{{post.thumbnail}} ')">
+                <div class="overlay"></div>
               <h5 class="card-title">{{post.title}}</h5>
               <p class="card-text">{{post.imtro|truncatechars:70}}</p>
              
