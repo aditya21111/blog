@@ -5,6 +5,7 @@ from django.utils.timezone import now
 from tinymce.models import HTMLField
 from tinymce.widgets import TinyMCE
 from django.template.defaultfilters import truncatechars
+from taggit.managers import TaggableManager#for tag filters
 
 
 # Create your models here.
@@ -20,6 +21,7 @@ class Blogpost(models.Model):
     
  
     category=models.CharField(max_length=15,default="")
+    tags = TaggableManager()
    
     thumbnail=models.ImageField(upload_to="media/blog/images" , default="")
     slug=models.CharField(default="", max_length=50)

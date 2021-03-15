@@ -165,13 +165,6 @@ def profile(request,  **kwargs):
 def policy(request):
     return render(request,"home/policy.html")
                 
-            
-         
 
-
-    
-            
-    
-   
         
     

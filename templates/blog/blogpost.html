@@ -133,7 +133,7 @@ a.fa.fa-facebook.facebook:hover, a.fa.fa-envelope.email:hover, a.fa.fa-whatsapp.
     background-color: #3B5998;
     color: white;
   }
-  
+  0
   .social-icons {
     position: absolute;
     right: 0;
@@ -235,6 +235,11 @@ a{
             {{post.content|safe|escape}}
  
         </div>
+      {% for tag in post.tags.all %}
+   <a href="/blog/tag/{{tag.slug}}" class="mr-1 text-muted">#{{ tag }}</a>
+                                        {% endfor %}
+                                        
+                
         </article><!-- blog-post -->
         
         </div></div></div><hr>
@@ -325,8 +330,9 @@ a{
               </div>  
               <div class="container">              
       <div class="col-md-4">
-      
-      {%for other in others%}
+                                        
+        <h5 class="text-muted">Similar Posts</h1>
+      {%for other in similar%}
       <div class="p-4  mt-4">
       
        

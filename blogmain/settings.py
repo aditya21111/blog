@@ -65,7 +65,7 @@ INSTALLED_APPS = [
     "blog",
     "home",
     'newsletter',
-    
+     'taggit', #!use for tag and filter post
 
     
 ]

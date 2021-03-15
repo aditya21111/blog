@@ -61,3 +61,4 @@ def unsubscribe(request):
 
     else:
         return render(request,"newsletter/unsub.html")
+
