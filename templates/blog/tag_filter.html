@@ -14,6 +14,8 @@
     background-attachment: scroll;
     position: relative;
     background-size: cover;
+    color: #fff;
+    font-family:'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif ;
 }
 .overlay {
     position: absolute;
@@ -51,7 +53,9 @@
   
  </div>
       <div class="col-lg-8 col-md-10 mx-auto">
+       
         {% for post in post_to_tag  %}
+        <a href="/blog/{{post.slug}}" >
         <div class="card text-center .musthead my-3" style="background-image: url('https://res.cloudinary.com/dus8g1azl/image/upload/v1/{{post.thumbnail}} ')">
             <div class="overlay"></div>
             <div class="card-header">
@@ -62,9 +66,9 @@
             <div class="card-body " >
               
               <h5 class="card-title">{{post.title}}</h5>
-              <p class="card-text">{{post.imtro|truncatechars:70}}</p>
+              <p class="card-text">{{post.imtro|truncatechars:100}}</p>
              
-              <a href="/blog/{{post.slug}}" class="btn btn-primary">Read more</a>
+              <a href="/blog/{{post.slug}}"  class="text-center text-muted">Read more</a>
             </div>
             <div class="card-footer ">
                 <span class="meta mt-3">Posted by
@@ -73,12 +77,13 @@
           </div>
        
       
-         
+        </a>   
   {% endfor %}
-        
+  
       </div>
   </div>
 
 </div>
+
 </div>
 {% endblock body %}
